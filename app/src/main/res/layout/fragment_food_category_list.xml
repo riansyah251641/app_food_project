@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/warm_purple"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.fromryan.appfoodbinar.presentation.foodcategorylist.FoodCategoryListFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+    <include
+        android:id="@+id/in_banner_main"
+        android:background="@drawable/bg_banner_round_bot"
+        layout="@layout/layout_banner_discount"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+         />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_list_of_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="22dp"
+            android:paddingVertical="8dp"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/in_banner_main"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_category_food"  />
+
+    <LinearLayout
+        android:id="@+id/ll_listmenu"
+        app:layout_constraintTop_toBottomOf="@+id/rv_list_of_category"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginVertical="12dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="8"
+            android:gravity="center_vertical"
+            android:text="@string/name_list_food"
+            android:textSize="18sp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/iv_change_mode"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_weight="2"
+            android:src="@drawable/iv_icon_list" />
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list_food"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="8dp"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintTop_toBottomOf="@+id/ll_listmenu"
+        tools:spanCount="2"
+        tools:listitem="@layout/item_food_grid" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="100dp"
+            app:layout_constraintTop_toBottomOf="@+id/rv_list_food">
+<!--            noting just padding-->
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
